@@ -19,7 +19,7 @@ github 基础概念：
 	
 
 	
-2 git 的学习
+2 git 的学习（git 有100多个命令）
 	1 基本介绍
 			git 开源 分布式版本控制系统 基于内容寻址的储存系统
 	2 git 的安装
@@ -34,18 +34,42 @@ github 基础概念：
 				已跟踪
 	5 git config 配置用户的信息
 		eg: git config --global user.name=""
-		    git config --global 
+		    git config --global user.email=""
+		    --local 默认 只会影响本仓库
+		    --global 影响当前用户的仓库
+		    --system 影响到全系统中的git
+	6 git help <command> 查看帮助
+	7 git add . 添加当前目录下的所有文件
+	 git rm  --cached 删除暫存区的file
+	 git
+	
+
+
 				
 				
 
 
 
 
-3 git 管理远程仓库
+3 git 管理远程仓库 git 支持多种协议 http ssh 
 		作用： 代码 备份共享集中管理
 		实现：将本地git仓库的代码 提交到远程仓库中
-				git push`
+				git push
+				git remote远程仓库相关配置操作
+					git remote add origin 远程仓库
+					git remote -v 查看远程仓库的信息
+
 						
-						
-	
+4 git 分支操作(围绕提交历史展开)
+	git branch 分支的增加 删除 查找 修改 全靠他
+		git branch <branch_name> 创建一个分支
+		git branch -d <branch_name>删除一个分支
+		git branch -v 列出所有的分支
+			前面带有*号的是当前所处的分支
+
+	git checkout <branch>让目标指向当前的branch
+	git checkout next （head指向下一个分支	）
+	git reset 将当前分支回退到历史的某个版本
+
+		
 	
