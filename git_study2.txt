@@ -1,0 +1,93 @@
+github 基础概念：
+	仓库reposity用来存放项目代码 	每个项目对应一个仓库
+	收藏 star 收藏数 可以右上角的your start进入自己收藏的仓库	
+	fork 以fork将他人的仓库放到自己的仓库中（和原仓库一样） 但是有一个 forked from 原仓库人 而且仓库的名称前面会有个分叉
+			可以对fork的内容进行修改(不会对原仓库进行修改)
+						pull request发起一个请求 给原仓库人进行请求修改 等待原仓库查看 如果不错会进行合并
+	watch  关注 项目如果更新 会接受到这个项目的通知
+	issue  发现bug 对没有成型的代码使用	 
+2 创建仓库
+	首先需要邮箱	进行验证才能创建github仓库 创建后可以将本地的git管理的仓库提交到github上 第一次需要密码
+		git remote add origin https://github.com/curry1998/github_study.git 这是一条远程提交的命令
+		说明一个git仓库对应一个开源项目 可以使用git管理这个仓库
+		README.md（.md文件为markdown标记语言 ）为详细描述项目的说明文件
+		upload可以上传本地的文件（一次可以上传多个文件）
+		issues就是在其他人的github仓库中如果发现问题 就是向仓库作者提交一个问题 来给作者查看 从而进行交流
+		github主页 显示仓库数 和关注内容的页面
+		个人主页 点击github帐号名进入的页面
+		
+	
+
+	
+2 git 的学习（git 有100多个命令）
+	1 基本介绍
+			git 开源 分布式版本控制系统 基于内容寻址的储存系统
+	2 git 的安装
+		ubuntu: sudo apt-get install git
+	3 git init 初始化仓库 会创建一个 .git文件（内部包含多个文件图片会上传） 
+	4 git status 对状态的跟踪 查看工作区与暂存区的状态
+			内容状态 ： 工作目录
+				    缓存目录
+				    提交区域
+			文件状态
+				未跟踪
+				已跟踪
+	5 git config 配置用户的信息
+		eg: git config --global user.name  ""
+		    git config --global user.emai  l""
+		    --local 默认 只会影响本仓库
+		    --global 影响当前用户的仓库
+		    --system 影响到全系统中的git
+	6 git help <command> 查看帮助
+	7 git add . 添加当前目录下的所有文件到暫存区
+	git add 文件名 将工作区(写代码的区域)的新建和修改提交到暂存区
+	git commit 将暂存区的文件保存到提交区（本地库	）
+	 git rm  --cached 删除暫存区的file
+	 git commit -a 文件名 将已追踪的文件直接提交到提交区域（未追踪的文件需要先git add）
+
+	 git log 查看版本的记录
+	 	head如同一个指针
+		git log --pretty=oneline 一行显示日志
+		git log --oneline 部分显示hash索引 只能显示当前版本以后的位置
+		git reflog 部分显示hash 索引 并显示到就版本所需要移动的步数所有的历史记录
+
+	前进或者后退当前所在的版本
+			head 指针 可以向前 向后 
+			版本的前进 后退
+				基于索引值操作
+					git reset --hard hash的索引值（让head值指向hash的索引的部分）
+				基于^符号 只能后退
+					git reset --hard HEAD^回退一步 暂存区和工作区都要重置
+					git reset --hard HEAD^^ 退两步
+					git reset --soft 只在本地库移动指针
+					git reset --mixed 在本地库移动指针 重置暂存去
+				基于~符号 git reset --hard HEAD~n 后退n步
+
+
+
+
+
+3 git 管理远程仓库 git 支持多种协议 http ssh 
+		作用： 代码 备份共享集中管理
+		实现：将本地git仓库的代码 提交到远程仓库中
+				git remote远程仓库相关配置操作（配置一次后git会记住这个地址接下来就不需要git remote add orign）					
+					git remote add origin 远程仓库（github的http url地址）
+					git remote -v 查看远程仓库的信息
+			进行推送 git push origin 推送的分支 
+						
+4 git 分支操作(围绕提交历史展开)
+	git branch 分支的增加 删除 查找 修改 全靠他
+		git branch <branch_name> 创建一个分支
+		git branch -d <branch_name>删除一个分支
+		git branch -v 列出所有的分支
+			前面带有*号的是当前所处的分支
+
+	git checkout <branch>让目标指向当前的branch
+	git checkout next （head指向下一个分支	）
+	git reset 将当前分支回退到历史的某个版本
+
+5 git找回文件
+	git找回永久删除的文件
+		rm 删除工作台的文件
+
+	
